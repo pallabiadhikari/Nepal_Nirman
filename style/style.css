@@ -8,18 +8,54 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;
-    padding-top: 56px; /* Correct padding to prevent content overlap */
+    padding-top: 56px; 
 }
 
 /* Navbar specific styles */
 .navbar-logo {
-    height: 40px; /* Restored to its original, correct size */
+    height: 40px; 
 }
 
-.logo-container h1 {
+/* --- New Navbar Animations: Box Filling In --- */
+.navbar-nav .nav-item {
+    position: relative;
+    z-index: 1; /* For the animation layer */
+}
+
+.navbar-nav .nav-link {
+    text-decoration: none;
+    position: relative;
+    padding: 10px 15px; /* Added padding for the box effect */
+    font-weight: 600;
+    color: var(--text-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: white; /* Text color changes to white on hover */
+}
+
+.navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-red);
+    transform: scale(0); /* Starts at zero scale */
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.2, 1); /* Fluid, bouncy transition */
+    z-index: -1; /* Puts the box behind the text */
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover::before {
+    transform: scale(1); /* Expands to full size on hover */
+}
+
+.navbar-brand h1 {
     font-size: 24px;
-    font-weight: bold;
-    color: #d72c2c; 
 }
 
 /* Hero Section Styles */
@@ -54,7 +90,7 @@ body {
 }
 
 .countdown-card-wrapper {
-    max-width: 600px; /* Reduced max-width */
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 15px;
@@ -62,7 +98,7 @@ body {
 
 @media (min-width: 992px) {
     .countdown-card-wrapper {
-        margin-left: 5%; /* Aligns to the left on desktop */
+        margin-left: 5%;
         margin-right: auto;
     }
 }
