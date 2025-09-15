@@ -1,105 +1,133 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+    --primary-red: #d72c2c;
+    --dark-red: #b32525;
+    --text-color: #333;
+    --secondary-color: #6c757d;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 56px; /* Correct padding to prevent content overlap */
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 40px;
-  background-color: white;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo-container img {
-  height: 40px;
-  margin-right: 10px;
+/* Navbar specific styles */
+.navbar-logo {
+    height: 40px; /* Restored to its original, correct size */
 }
 
 .logo-container h1 {
-  font-size: 24px;
-  font-weight: bold;
-  color: #d72c2c; 
+    font-size: 24px;
+    font-weight: bold;
+    color: #d72c2c; 
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  margin-right: 100px;
-}
-
-nav a {
-  text-decoration: none;
-  color: black;
-  font-weight:600;
-  position: relative;
-  padding: 8px 0;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #d72c2c;
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #361e8c;
-  transition: width 0.3s;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
+/* Hero Section Styles */
 .hero-section {
-  background-image: url('../assets/image/parliment.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: rgb(240, 232, 232);
-  text-align: center;
-  padding: 100px 20px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    position: relative;
+    min-height: 500px;
+    background-image: url('../assets/image/parliment.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-  .hero-section h1 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 16px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Correct opacity */
+    z-index: 1;
 }
 
-.hero-section p {
-  font-size: 18px;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+/* Countdown Section Styles */
+.countdown-container {
+    position: relative;
+    z-index: 10;
+    margin-top: -100px;
+}
+
+.countdown-card-wrapper {
+    max-width: 600px; /* Reduced max-width */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
+
+@media (min-width: 992px) {
+    .countdown-card-wrapper {
+        margin-left: 5%; /* Aligns to the left on desktop */
+        margin-right: auto;
+    }
+}
+
+.countdown-card {
+    border: none;
+    border-radius: 10px;
+}
+
+.time-block {
+    background-color: var(--primary-red);
+    color: white;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.time-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.animate-red-bg {
+    transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.animate-red-bg:hover {
+    background-color: var(--dark-red);
+    transform: scale(1.05);
+}
+
+/* Pulsing red animation for the button */
+@keyframes pulse-red {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(215, 44, 44, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(215, 44, 44, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(215, 44, 44, 0);
+    }
+}
+
+.animate-pulse-red {
+    animation: pulse-red 2s infinite;
+}
+
+.btn-primary {
+    background-color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-red);
+    border-color: var(--dark-red);
+}
+
+.btn-outline-secondary {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover {
+    color: white;
+    background-color: var(--secondary-color);
 }

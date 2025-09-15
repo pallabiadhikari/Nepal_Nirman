@@ -3,28 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nepal Nirman - Header</title>
+    <title>Nepal Nirman: A New Beginning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-      <div class="logo-container">
-        <div> <img src="assets/image/np_logo.jpg" alt="Nepal Nirman Logo"></div>
-        <h1>Nepal Nirman</h1>
-      </div>
 
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Evidence</a>
-        <a href="#">Victims</a>
-        <a href="#">About</a>
-      </nav>
+    <header class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <div class="logo-container d-flex align-items-center">
+                <a class="navbar-brand me-0" href="#hero">
+                    <img src="assets/image/np_logo.jpg" alt="Nepal Nirman Logo" class="navbar-logo">
+                </a>
+                <h1 class="h5 fw-bold mb-0 text-danger">Nepal Nirman</h1>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#countdown">Countdown</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#evidence">Evidence</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#victims">Victims</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero-section">
-      <h1>YOUR VOICE, YOUR POWER</h1>
-      <p>Demand accountability. Document the truth. Drive the change Nepal needs.</p>
+    <section class="hero-section" id="hero">
+        <div class="container text-center text-white position-relative" style="z-index: 2;">
+            <h1 class="display-3 fw-bold">YOUR VOICE, YOUR POWER</h1>
+            <p class="lead mt-3">Demand accountability. Document the truth. Drive the change Nepal needs.</p>
+        </div>
     </section>
 
+    <section class="countdown-container">
+        <div class="countdown-card-wrapper">
+            <div class="card countdown-card shadow-lg">
+                <div class="card-body p-4">
+                    <h2 class="card-title h3 fw-bold mb-2">Election Countdown</h2>
+                    <p class="card-subtitle text-muted mb-4">Your Participation is vital, Be informed, be ready.</p>
+                    <div class="d-flex justify-content-between gap-2 text-center flex-wrap">
+                        <div class="time-block flex-grow-1 p-2 rounded-2 animate-red-bg">
+                            <span id="days" class="time-value h4 fw-bold mb-0 d-block">00</span>
+                            <small class="time-label text-uppercase">Days</small>
+                        </div>
+                        <div class="time-block flex-grow-1 p-2 rounded-2 animate-red-bg">
+                            <span id="hours" class="time-value h4 fw-bold mb-0 d-block">00</span>
+                            <small class="time-label text-uppercase">Hrs</small>
+                        </div>
+                        <div class="time-block flex-grow-1 p-2 rounded-2 animate-red-bg">
+                            <span id="minutes" class="time-value h4 fw-bold mb-0 d-block">00</span>
+                            <small class="time-label text-uppercase">Mins</small>
+                        </div>
+                        <div class="time-block flex-grow-1 p-2 rounded-2 animate-red-bg">
+                            <span id="seconds" class="time-value h4 fw-bold mb-0 d-block">00</span>
+                            <small class="time-label text-uppercase">Secs</small>
+                        </div>
+                    </div>
+                    <p class="mt-4 mb-3 fw-bold text-dark">Who will you vote for?</p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-start">
+                        <a href="#" class="btn btn-primary fw-bold animate-pulse-red">View Candidates</a>
+                        <a href="#" class="btn btn-outline-secondary fw-bold">Election Info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const endDate = new Date("November 20, 2025 00:00:00").getTime(); 
+
+        const countdownTimer = setInterval(function() {
+          const now = new Date().getTime();
+          const distance = endDate - now;
+
+          if (distance < 0) {
+            clearInterval(countdownTimer);
+            document.getElementById("days").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById("seconds").innerHTML = "00";
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+          document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+          document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+          document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+
+        }, 1000);
+    </script>
 </body>
 </html>
