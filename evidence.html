@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Report an Incident</title>
+  <link rel="stylesheet" href="style/evidence.css">
+</head>
+<body>
+
+  <div class="report-container">
+    <h1>Report an Incident</h1>
+    <form>
+      <div class="form-grid">
+        <div>
+          <label for="incidentType">Incident Type</label>
+          <select id="incidentType" name="incidentType">
+            <option value="">Select incident type</option>
+            <option value="corruption">Corruption</option>
+            <option value="violence">Violence</option>
+            <option value="discrimination">Discrimination</option>
+            <option value="harassment">Harassment</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" placeholder="e.g., Kathmandu Durbar Square">
+        </div>
+
+        <div>
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date">
+        </div>
+
+        <div>
+          <label for="time">Time</label>
+          <input type="time" id="time" name="time">
+        </div>
+
+        <div class="form-grid-full">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" placeholder="Describe the incident in detail..."></textarea>
+        </div>
+
+        <div class="form-grid-full">
+          <label>Evidence</label>
+          <div class="upload-box">
+            <div class="upload-icon">📁</div>
+            <div><strong>Drag & drop files or click to upload</strong></div>
+            <small>Supports: JPG, PNG, MP4</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>Privacy Note:</strong> All submissions are stored locally on your device and are not uploaded to any server.
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Securely</button>
+    </form>
+  </div>
+
+</body>
+</html>
