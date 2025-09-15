@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal Nirman: A New Beginning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #dc3545;
+            --secondary-color: #6c757d;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            margin: 0;
+            padding-top: 60px; /* Space for fixed navbar */
+            scroll-behavior: smooth;
+        }
+
+        /* ----- Navbar Styling ----- */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .navbar-brand img { height: 40px; margin-right: 10px; }
+        .navbar .nav-link {
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .navbar .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* ----- Sections Styling ----- */
+        .section {
+            padding: 80px 20px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* ----- Main Dashboard Section (Hero) Styling ----- */
+        #dashboard {
+            min-height: calc(100vh - 60px);
+            justify-content: center;
+            text-align: center;
+        }
+        .dashboard-content {
+            padding: 2rem;
+            max-width: 700px;
+        }
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .time-block {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 120px;
+            min-width: 80px;
+        }
+        .time-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .time-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .vote-text {
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+        }
+        .btn-secondary-custom {
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        /* ----- Other Sections Styling ----- */
+        .interactive-card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 2rem;
+            text-align: center;
+        }
+        #evidence, #candidates, #acknowledgments { background-color: white; }
+        #victims, #education { background-color: var(--light-color); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-dark" href="#dashboard">Nepal Nirman</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#dashboard">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#evidence">Evidence</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#victims">Victims</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#candidates">Candidates</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="dashboard" class="section">
+        <div class="container d-flex justify-content-center">
+            <div class="dashboard-content">
+                <h1 class="card-title fw-bold">Election Countdown</h1>
+                <p class="card-subtitle mb-4 text-muted">Your Participation is vital. Be informed, be ready.</p>
+                <div class="countdown-timer">
+                    <div class="time-block">
+                        <span id="days" class="time-value">00</span>
+                        <p class="time-label">Days</p>
+                    </div>
+                    <div class="time-block">
+                        <span id="hours" class="time-value">00</span>
+                        <p class="time-label">Hrs</p>
+                    </div>
+                    <div class="time-block">
+                        <span id="minutes" class="time-value">00</span>
+                        <p class="time-label">Mins</p>
+                    </div>
+                    <div class="time-block">
+                        <span id="seconds" class="time-value">00</span>
+                        <p class="time-label">Secs</p>
+                    </div>
+                </div>
+                <p class="vote-text">Who will you vote for?</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button class="btn btn-primary-custom" type="button">View Candidates</button>
+                    <button class="btn btn-secondary-custom" type="button">Election Info</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="evidence" class="section">
+        <div class="container">
+            <h2 class="section-title">Evidence Collection <i class="fa-solid fa-cloud-arrow-up"></i></h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="interactive-card">
+                        <p class="text-center text-muted">Submit your evidence of election misconduct or violence here.</p>
+                        <form>
+                            <div class="mb-3">
+                                <label for="evidenceFile" class="form-label">Upload File (Image/Video)</label>
+                                <input class="form-control" type="file" id="evidenceFile">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" rows="3"></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary-custom">Submit Evidence</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="victims" class="section">
+        <div class="container">
+            <h2 class="section-title">Victims and Injured Section <i class="fa-solid fa-kit-medical"></i></h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="interactive-card text-center">
+                        <p class="text-muted">Information and resources for victims and their families. Find support, report incidents, and learn about your rights.</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button class="btn btn-outline-secondary" type="button">Get Help</button>
+                            <button class="btn btn-outline-secondary" type="button">Report Incident</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">"What Now?" & Education <i class="fa-solid fa-graduation-cap"></i></h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="interactive-card">
+                        <h5 class="fw-bold mb-3 text-center">Be informed, be empowered.</h5>
+                        <p class="text-muted">This section provides guides on what to do during and after the election, how to stay safe, and key information on the electoral process.</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Your Voting Rights</li>
+                            <li class="list-group-item">How to Report Misinformation</li>
+                            <li class="list-group-item">A Guide to Peaceful Participation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="candidates" class="section">
+        <div class="container">
+            <h2 class="section-title">Candidates & Discussions <i class="fa-solid fa-users"></i></h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="interactive-card text-center">
+                        <p class="text-muted">Learn about the candidates and engage in civil discussions with other voters. Share your views and ask questions.</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button class="btn btn-primary-custom" type="button">View Candidate Profiles</button>
+                            <button class="btn btn-outline-secondary" type="button">Join Discussion</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="acknowledgments" class="section">
+        <div class="container">
+            <h2 class="section-title">Constitutional Education <i class="fa-solid fa-book-open"></i></h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="interactive-card">
+                        <h5 class="fw-bold mb-3 text-center">Know your rights.</h5>
+                        <p class="text-muted">An accessible guide to the core principles of your country's constitution and how they apply to the electoral process.</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button class="btn btn-outline-secondary" type="button">Read the Guide</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-4 bg-dark text-white">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Nepal Nirman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        const endDate = new Date("November 20, 2025 00:00:00").getTime(); 
+
+        const countdownTimer = setInterval(function() {
+          const now = new Date().getTime();
+          const distance = endDate - now;
+
+          if (distance < 0) {
+            clearInterval(countdownTimer);
+            document.getElementById("days").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById("seconds").innerHTML = "00";
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+          document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+          document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+          document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+
+        }, 1000);
+    </script>
+</body>
+</html>
