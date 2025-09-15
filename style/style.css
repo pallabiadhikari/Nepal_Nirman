@@ -16,59 +16,54 @@ body {
     height: 40px; 
 }
 
-/* --- New Navbar Animations: Box Filling In --- */
-.navbar-nav .nav-item {
-    position: relative;
-    z-index: 1; /* For the animation layer */
+.navbar-brand h1 {
+    font-size: 24px;
 }
 
+/* ----- Recreated Navbar Animations (Rounded) ----- */
 .navbar-nav .nav-link {
     text-decoration: none;
     position: relative;
-    padding: 10px 15px; /* Added padding for the box effect */
+    padding: 10px 15px; 
     font-weight: 600;
     color: var(--text-color);
-    transition: color 0.3s ease-in-out;
-}
-
-.navbar-nav .nav-link:hover {
-    color: white; /* Text color changes to white on hover */
+    transition: color 0.3s ease;
+    overflow: hidden;
+    z-index: 1; /* Ensures the link text is above the background */
 }
 
 .navbar-nav .nav-link::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Starts as a tiny, invisible dot */
     width: 100%;
     height: 100%;
-    background-color: var(--primary-red);
-    transform: scale(0); /* Starts at zero scale */
-    transform-origin: center;
-    transition: transform 0.4s cubic-bezier(0.2, 1, 0.2, 1); /* Fluid, bouncy transition */
-    z-index: -1; /* Puts the box behind the text */
-    border-radius: 5px;
+    background-color: #fcebeb; /* Light red fill */
+    border-radius: 50%; /* It's a circle! */
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth, rounded growth animation */
+    z-index: -1; /* Pushes the background behind the text */
 }
 
 .navbar-nav .nav-link:hover::before {
-    transform: scale(1); /* Expands to full size on hover */
+    transform: translate(-50%, -50%) scale(1.5); /* Grows to fill the space */
 }
 
-.navbar-brand h1 {
-    font-size: 24px;
+.navbar-nav .nav-link:hover {
+    color: var(--primary-red); /* Color change for contrast */
 }
+
 
 /* Hero Section Styles */
 .hero-section {
     position: relative;
-    min-height: 500px;
-    background-image: url('../assets/image/parliment.jpg');
+    height: 60vh;
+    background-image: url('../assets/image/parliment.jpg'); /* The original image is back */
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: white;
+    overflow: hidden;
 }
 
 .hero-section::before {
@@ -78,92 +73,238 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Correct opacity */
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
-/* Countdown Section Styles */
-.countdown-container {
+.hero-section .container {
+    z-index: 2;
+}
+
+.hero-text {
+    width: 60%;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    transition: all 0.5s ease;
+}
+
+/* New: Red border circle as a separate element */
+.floating-countdown-border-circle {
+    width: 190px; /* 180px + 3px border on each side */
+    height: 186px;
+    background-color: var(--primary-red);
+    border-radius: 50%;
+    z-index: 9; /* Sits below the white circle */
+    margin-left: 20px;
+}
+
+/* Old: Floating Countdown Card (Now the white inner circle) */
+.floating-countdown-card {
+    position: relative; /* Now relative to its parent */
+    width: 180px;
+    height: 180px;
+    background-color: white; /* Full opacity */
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Removed old positioning and border properties */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.floating-countdown-card:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.floating-countdown-card .card-body {
+    padding: 0;
+    line-height: 1;
+}
+
+.floating-countdown-card .card-title {
+    font-size: 3rem;
+    color: var(--primary-red); /* Red font */
+    font-weight: 700;
+}
+.floating-countdown-card .card-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-red); /* Red font */
+}
+
+/* Main Content Area - Fixed Spacing */
+.main-content-area {
+    margin-top: 3rem;
     position: relative;
     z-index: 10;
-    margin-top: -100px;
 }
 
-.countdown-card-wrapper {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 15px;
-}
-
-@media (min-width: 992px) {
-    .countdown-card-wrapper {
-        margin-left: 5%;
-        margin-right: auto;
-    }
-}
-
-.countdown-card {
+/* General Card Styling */
+.card {
     border: none;
     border-radius: 10px;
 }
 
-.time-block {
-    background-color: var(--primary-red);
-    color: white;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+/* Main Content Card Styling (for News & Contacts) */
+.content-card {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
 }
 
-.time-block:hover {
+.content-card::before,
+.content-card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--primary-red);
+}
+
+.content-card::before {
+    top: 0;
+}
+
+.content-card::after {
+    bottom: 0;
+}
+
+.content-card .card-body {
+    padding: 2rem;
+}
+
+/* Report Banner */
+.report-banner {
+    border-radius: 10px;
+    background-color: var(--primary-red);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+.report-banner:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.animate-red-bg {
-    transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
+.report-banner .btn {
+    color: var(--primary-red);
+    background-color: white;
+    border-radius: 20px;
+    padding: 0.75rem 2rem;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
 }
 
-.animate-red-bg:hover {
-    background-color: var(--dark-red);
-    transform: scale(1.05);
+.report-banner .btn:hover {
+    background-color: #e0e0e0;
 }
 
-/* Pulsing red animation for the button */
-@keyframes pulse-red {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(215, 44, 44, 0.7);
+/* Section Title with divider */
+.section-title {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-red);
+    border-radius: 2px;
+}
+
+/* Single News Preview Card */
+.news-preview-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-preview-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.news-preview-image {
+    height: 150px; /* Consistent height */
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+/* News Cards (Full Section) */
+.news-card {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.news-image {
+    max-height: 120px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Important Contacts & Know Your Rights Section */
+.contact-list .list-group-item {
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    transition: border-left-color 0.3s ease;
+}
+
+.contact-list .list-group-item:hover {
+    border-left-color: var(--primary-red);
+    background-color: #f1f1f1;
+}
+
+.contact-list .badge {
+    min-width: 50px;
+}
+
+/* Footer */
+footer {
+    background-color: #212529;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .main-content-area {
+        margin-top: 1.5rem;
     }
-    70% {
-        transform: scale(1.05);
-        box-shadow: 0 0 0 10px rgba(215, 44, 44, 0);
+    .hero-text {
+        text-align: center;
+        width: 100%;
+        padding: 0 1rem;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(215, 44, 44, 0);
+    .floating-countdown-border-circle {
+        width: 126px; /* 120px + 3px on each side */
+        height: 126px;
     }
-}
-
-.animate-pulse-red {
-    animation: pulse-red 2s infinite;
-}
-
-.btn-primary {
-    background-color: var(--primary-red);
-    border-color: var(--primary-red);
-}
-
-.btn-primary:hover {
-    background-color: var(--dark-red);
-    border-color: var(--dark-red);
-}
-
-.btn-outline-secondary {
-    color: var(--secondary-color);
-    border-color: var(--secondary-color);
-}
-
-.btn-outline-secondary:hover {
-    color: white;
-    background-color: var(--secondary-color);
+    .floating-countdown-card {
+        width: 120px;
+        height: 120px;
+    }
+    .floating-countdown-card .card-title {
+        font-size: 2rem;
+    }
+    .floating-countdown-card .card-subtitle {
+        font-size: 0.8rem;
+    }
 }
