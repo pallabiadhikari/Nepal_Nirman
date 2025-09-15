@@ -74,3 +74,32 @@ nav a::after {
 nav a:hover::after {
   width: 100%;
 }
+
+.hero-section {
+  background-image: url('../assets/image/parliment.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgb(240, 232, 232);
+  text-align: center;
+  padding: 100px 20px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+  .hero-section h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
