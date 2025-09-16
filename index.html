@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nepal Nirman: Home</title>
+    <title>Nepal Nirman: Main Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
@@ -17,68 +17,182 @@
                 <a class="navbar-brand me-0" href="index.html">
                     <img src="assets/image/np_logo.jpg" alt="Nepal Nirman Logo" class="navbar-logo">
                 </a>
-                <h1 class="h5 fw-bold mb-0 text-danger">Nepal Nirman</h1>
+                <h1 class="h5 fw-bold mb-0 text-dark">Nepal Nirman</h1>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <nav class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="news.html">News</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="evidence.html">Evidence</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="victims.html">Victims</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="evidence.html">Evidence</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="victims.html">Victims</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="about.html">About</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero-section" id="hero">
-        <div class="container text-center text-white position-relative" style="z-index: 2;">
-            <h1 class="display-3 fw-bold">YOUR VOICE, YOUR POWER</h1>
-            <p class="lead mt-3">Demand accountability. Document the truth. Drive the change Nepal needs.</p>
+    <section class="hero-section d-flex align-items-center" id="hero">
+        <div class="container d-flex justify-content-end text-center text-white position-relative h-100">
+            <div class="floating-countdown-border-circle position-absolute top-50 start-0 translate-middle">
+                <div class="floating-countdown-card card shadow-lg rounded-circle">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="card-title fw-bold display-4 mb-0" id="days">00</h2>
+                        <p class="card-subtitle mt-2 fw-semibold">Days <br>Left For Election</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-text position-absolute end-0 top-50 translate-middle-y text-end pe-5">
+                <h1 class="display-4 fw-bold">YOUR VOICE, YOUR POWER</h1>
+                <p class="lead mt-3">Demand accountability. Document the truth. Drive the change Nepal needs.</p>
+            </div>
         </div>
     </section>
 
-    <section class="countdown-container">
-        <div class="countdown-card-wrapper">
-            <div class="card countdown-card shadow-lg">
-                <div class="card-body p-4">
-                    <h2 class="card-title h3 fw-bold mb-2">Election Countdown</h2>
-                    <p class="card-subtitle text-muted mb-4">Your Participation is vital, Be informed, be ready.</p>
-                    <div class="d-flex justify-content-between gap-2 text-center flex-wrap">
-                        <div class="time-block flex-grow-1 p-2 rounded-2 animate-red-bg">
-                            <span id="days" class="time-value h4 fw-bold mb-0 d-block">00</span>
-                            <small class="time-label text-uppercase">Days</small>
+    <main class="main-content-area container" id="main-content">
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 d-flex">
+                <div class="card content-card shadow-lg flex-grow-1">
+                    <div class="card-body p-4">
+                        <h2 class="section-title fw-bold mb-4"><i class="fa-solid fa-phone me-2 text-danger"></i> Emergency Contacts</h2>
+                        <ul class="list-group list-group-flush contact-list">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Police Emergency
+                                <span class="badge bg-light text-dark fw-bold">100</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Ambulance
+                                <span class="badge bg-light text-dark fw-bold">102</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Anti-Corruption Hotline
+                                <span class="badge bg-light text-dark fw-bold">117</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 d-flex">
+                <div class="card content-card shadow-lg flex-grow-1">
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <h2 class="section-title fw-bold mb-4"><i class="fa-solid fa-newspaper me-2 text-danger"></i> Latest News</h2>
+                            <div class="news-preview-card card mb-3">
+                                <img src="https://via.placeholder.com/400x200" class="card-img-top news-preview-image" alt="Article Image">
+                                <div class="card-body py-2 px-3">
+                                    <h5 class="card-title fw-bold fs-6 mb-1">Investigation into Missing Funds</h5>
+                                    <p class="card-text text-muted small mb-2">Authorities provide an update on the ongoing investigation. New leads have emerged from citizen submissions.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="time-block flex-grow-1 p-2 rounded-2 animate-red-bg">
-                            <span id="hours" class="time-value h4 fw-bold mb-0 d-block">00</span>
-                            <small class="time-label text-uppercase">Hrs</small>
-                        </div>
-                        <div class="time-block flex-grow-1 p-2 rounded-2 animate-red-bg">
-                            <span id="minutes" class="time-value h4 fw-bold mb-0 d-block">00</span>
-                            <small class="time-label text-uppercase">Mins</small>
-                        </div>
-                        <div class="time-block flex-grow-1 p-2 rounded-2 animate-red-bg">
-                            <span id="seconds" class="time-value h4 fw-bold mb-0 d-block">00</span>
-                            <small class="time-label text-uppercase">Secs</small>
+                        <div class="d-flex justify-content-between mt-3">
+                            <a href="#news-article-1" class="btn btn-outline-danger fw-bold flex-grow-1 me-2">Read More</a>
+                            <a href="#news-section" class="btn btn-danger fw-bold flex-grow-1">View All News</a>
                         </div>
                     </div>
-                    <p class="mt-4 mb-3 fw-bold text-dark">Who will you vote for?</p>
-                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-start">
-                        <a href="#" class="btn btn-primary fw-bold animate-pulse-red">View Candidates</a>
-                        <a href="#" class="btn btn-outline-secondary fw-bold">Election Info</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 d-flex">
+                <div class="report-banner card bg-danger text-white shadow-lg flex-grow-1 d-flex flex-column justify-content-center text-center p-4">
+                    <i class="fa-solid fa-bullhorn fa-4x mb-2"></i>
+                    <h3 class="fw-bold fs-4">Submit Report</h3>
+                    <p class="mb-4">Report incidents or submit evidence.</p>
+                    <a href="#" class="btn btn-light fw-bold rounded-pill stretched-link">Submit a Report</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="container my-5" id="news-section">
+        <h2 class="section-title fw-bold mb-4"><i class="fa-solid fa-newspaper me-2 text-danger"></i> All Articles</h2>
+        <div class="row g-4">
+            <div class="col-md-6" id="news-article-1">
+                <div class="card news-card h-100 shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-center justify-content-center">
+                            <img src="https://via.placeholder.com/150" class="img-fluid rounded-start news-image p-2" alt="Nepal Flag">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <small class="text-muted">March 9, 2024</small>
+                                <h5 class="card-title fw-bold mt-2">Investigation into Missing Funds Continues</h5>
+                                <p class="card-text">Authorities provide an update on the ongoing investigation. New leads have emerged from citizen submissions.</p>
+                                <a href="#" class="stretched-link text-danger fw-bold text-decoration-none">Read More <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" id="news-article-2">
+                <div class="card news-card h-100 shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-center justify-content-center">
+                            <img src="https://via.placeholder.com/150" class="img-fluid rounded-start news-image p-2" alt="Generic Placeholder">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <small class="text-muted">February 28, 2024</small>
+                                <h5 class="card-title fw-bold mt-2">Community Watchdog Program Launched</h5>
+                                <p class="card-text">New initiative empowers local communities to monitor public projects and report irregularities.</p>
+                                <a href="#" class="stretched-link text-danger fw-bold text-decoration-none">Learn More <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" id="news-article-3">
+                <div class="card news-card h-100 shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-center justify-content-center">
+                            <img src="https://via.placeholder.com/150" class="img-fluid rounded-start news-image p-2" alt="Placeholder">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <small class="text-muted">January 15, 2024</small>
+                                <h5 class="card-title fw-bold mt-2">Public Forum on Local Governance Scheduled</h5>
+                                <p class="card-text">Local leaders to discuss budget transparency and citizen participation in upcoming town hall meeting.</p>
+                                <a href="#" class="stretched-link text-danger fw-bold text-decoration-none">Details Here <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" id="news-article-4">
+                <div class="card news-card h-100 shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-center justify-content-center">
+                            <img src="https://via.placeholder.com/150" class="img-fluid rounded-start news-image p-2" alt="Placeholder">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <small class="text-muted">March 15, 2026</small>
+                                <h5 class="card-title fw-bold mt-2">Accountability Report on Infrastructure Projects</h5>
+                                <p class="card-text">New report highlights progress and challenges in major road and water supply projects across the region.</p>
+                                <a href="#" class="stretched-link text-danger fw-bold text-decoration-none">View Report <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <small>&copy; 2024 Nepal Nirman. All Rights Reserved.</small><br>
+            <small class="text-muted">A community-driven platform for accountability and education.</small>
+        </div>
+    </footer>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        const endDate = new Date("November 20, 2025 00:00:00").getTime(); 
+        const endDate = new Date("March !5, 2026 00:00:00").getTime(); 
 
         const countdownTimer = setInterval(function() {
           const now = new Date().getTime();
@@ -87,22 +201,11 @@
           if (distance < 0) {
             clearInterval(countdownTimer);
             document.getElementById("days").innerHTML = "00";
-            document.getElementById("hours").innerHTML = "00";
-            document.getElementById("minutes").innerHTML = "00";
-            document.getElementById("seconds").innerHTML = "00";
             return;
           }
 
           const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-          document.getElementById("days").innerHTML = String(days).padStart(2, '0');
-          document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
-          document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
-          document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
-
+          document.getElementById("days").innerHTML = String(days);
         }, 1000);
     </script>
 </body>
